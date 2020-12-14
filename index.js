@@ -16,10 +16,14 @@ function singTwelveDaysOfChristmas(){
     "Four calling birds,\n",
     "Three French hens,\n",
     "Two turtle doves\n",
-    "% partridge in a pear tree.\n\n"
+    "And a partridge in a pear tree.\n\n"
   ];
   
-  const getGifts = day => gifts.slice(11-day).join("").replace("%", day ? "And a": "A");
+  function getGifts(day){
+    let list = gifts.slice(11-day).join("");
+    if (!day) list = list.replace("nd a", "");
+    return list;
+  }
   
   return days.reduce((song, day, i) => {
     return song + 
